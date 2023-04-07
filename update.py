@@ -14,7 +14,7 @@ def scan_dir():
     global recent
 
     for x in os.listdir():
-        if x.startswith("DAY"):
+        if x.startswith("SOLVED"):
             for i in os.listdir(x):
                 if not i.startswith(".") and not i.endswith(
                     ".out"
