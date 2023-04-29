@@ -20,7 +20,6 @@ class Website:
         websites.append(self)
         self.scan_count()
         self.find_recent()
-        print(self.lang_count)
     
     def scan_count(self):
          for path in os.scandir(self.folder_name):
