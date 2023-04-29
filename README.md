@@ -6,6 +6,6 @@
 </div>
 
 | Website | Solved | Most used language | Recent |
-|-|-:|-:|-:|
-|Baekjoon|20|C++|[14681_사분면%20고르기](Baekjoon/14681_사분면%20고르기.py)|
-|LeetCode|2|C|[9_Palindrome%20Number](LeetCode/9_Palindrome%20Number.c)|
+|-|-|-|:-|
+|[Baekjoon](Baekjoon)|20|C++|[14681_사분면 고르기](Baekjoon/14681_사분면%20고르기.py)|
+|[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|

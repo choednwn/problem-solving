@@ -93,11 +93,11 @@ class Markdown:
 
         # replaced text
         self.updated_text.append("| Website | Solved | Most used language | Recent |\n")
-        self.updated_text.append("|-|-:|-:|-:|\n")
+        self.updated_text.append("|-|-|-|:-|\n")
 
         for site in websites:
             name, total_count, most_used_lang, recent  = site.get_stats()
-            self.updated_text.append(f"|{name}|{total_count}|{most_used_lang}|[{recent[:recent.find('.')].replace(' ', '%20')}]({name}/{recent.replace(' ', '%20')})|\n")
+            self.updated_text.append(f"|[{name}]({name})|{total_count}|{most_used_lang}|[{recent[:recent.find('.')]}]({name}/{recent.replace(' ', '%20')})|\n")
 
     def write_md(self):
         with open(self.file, "w") as md:
