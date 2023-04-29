@@ -7,5 +7,5 @@
 
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
-|[Baekjoon](Baekjoon)|21|C++|[2884_알람 시계](Baekjoon/2884_알람%20시계.py)|
+|[Baekjoon](Baekjoon)|23|C++|[2480_주사위 세개](Baekjoon/2480_주사위%20세개.py)|
 |[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|
