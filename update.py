@@ -1,82 +1,110 @@
 import os
+import glob
 
-problems = dict()
-recent = dict()
-
+websites = list()
 
 def main():
-    scan_dir()
-    update_md()
+    Website("Baekjoon")
+    Website("LeetCode")
 
+    Markdown()
 
-def scan_dir():
-    global problems
-    global recent
+class Website:
+    def __init__(self, folder_name):
+        self.folder_name = folder_name
+        self.lang_count = dict() # count of solutions per language
+        self.recent = str() # most recent solution
 
-    for x in os.listdir():
-        if x.startswith("SOLVED"):
-            for i in os.listdir(x):
-                if not i.startswith(".") and not i.endswith(
-                    ".out"
-                ):  # Ignores .DS_Count && .out files
-                    # Addes to count
-                    ws = i[i.find("_") + 1 : i.find("]")]
-                    if ws in problems:
-                        problems[ws] += 1
+        # actions
+        global websites
+        websites.append(self)
+        self.scan_count()
+        self.find_recent()
+        print(self.lang_count)
+    
+    def scan_count(self):
+         for path in os.scandir(self.folder_name):
+            if path.is_file():
+                # ignore .DS_Count file
+                if not path.name.startswith("."):
+                    file_extension = path.name[path.name.find("."):]
+                    if file_extension in self.lang_count.keys():
+                        self.lang_count[file_extension] += 1
                     else:
-                        problems[ws] = 1
+                        self.lang_count[file_extension] = 1
 
-                    # Updates Recent
-                    day = i[1 : i.find("_")]
-                    rbs = "\\_"
-                    if ws in recent:
-                        if (
-                            day
-                            > recent[ws][
-                                recent[ws].find("[", 1) + 1 : recent[ws].find("_")
-                            ]
-                        ):
-                            recent[
-                                ws
-                            ] = f"[{i.replace('_', f'{rbs}')}]({x.replace(' ', '%20')}/{i.replace(' ', '%20')})"
-                    else:
-                        recent[
-                            ws
-                        ] = f"[{i.replace('_', f'{rbs}')}]({x.replace(' ', '%20')}/{i.replace(' ', '%20')})"
+    def find_recent(self):
+        files = glob.glob(f"{self.folder_name}/[!.]*")
+        self.recent = os.path.basename(max(files, key=os.path.getmtime))
 
+    def get_stats(self) -> tuple:        
+        total_count = 0
+        for count in self.lang_count.values():
+            total_count += count
+        
+        most_used_lang = max(self.lang_count, key=(lambda key: self.lang_count[key]))
+        match most_used_lang:
+            case ".c":
+                most_used_lang = "C"
+            case ".cpp":
+                most_used_lang = "C++"
+            case ".py":
+                most_used_lang = "Python"
+            case ".java":
+                most_used_lang = "Java"
+            case ".js":
+                most_used_lang = "JavaScript"
+            case ".rs":
+                most_used_lang = "Rust"
+            case _:
+                most_used_lang = "Other"
+        
+        # folder_name, total_count, most_used_lang, recent
+        return self.folder_name, total_count, most_used_lang, self.recent 
 
-def update_md():
-    global problems
-    global recent
+class Markdown:
+    def __init__(self):
+        self.file = "README.md"
+        self.updated_text = list()
+        
+        global websites
+        self.websites = websites
 
-    file = "README.md"
-    dl = "||:|:|"  # divider line
+        self.update_md()
+        self.write_md()
 
-    with open(file, "r") as mdr:  # mdr: markdown-read
-        # remove all data till table divider line
-        sl = int()
-        for ln, line in enumerate(mdr, 1):  # ln : line-number
-            if line.startswith("|"):
-                line = line.replace("-", "")
-                line = line.replace(" ", "").strip()
-                if line == dl:
-                    sl = ln
+    def update_md(self):
+        # non-replacing text
+        with open(self.file, "r") as md:
+            lines = md.readlines()
+            deletion_start_line = len(lines)
+
+            # find starting line for replacing
+            for ln, text in enumerate(lines):
+                if text.startswith("|"):
+                    deletion_start_line = ln
                     break
-        mdr.seek(0)
-        data = mdr.readlines()
-        dlen = len(data)
 
-        for i in range(dlen - sl):
-            data.pop((dlen - 1) - i)
-        mdr.seek(len(data))
+            # adds non-replacing content to self.updated_text
+            for ln, line in enumerate(lines):
+                if ln < deletion_start_line:
+                    self.updated_text.append(line)
+        md.close()
 
-        # update data
-        for idx in problems:
-            data.append(f"| {idx} | {problems[idx]} | {recent[idx]} |\n")
+        # replaced text
+        self.updated_text.append("| Website | Solved | Most used language | Recent |\n")
+        self.updated_text.append("|-|-:|-:|-:|\n")
 
-        with open(file, "w") as mdw:
-            mdw.writelines(data)
+        for site in websites:
+            name, total_count, most_used_lang, recent  = site.get_stats()
+            self.updated_text.append(f"|{name}|{total_count}|{most_used_lang}|[{recent[:recent.find('.')].replace(' ', '%20')}]({name}/{recent.replace(' ', '%20')})|\n")
+
+    def write_md(self):
+        with open(self.file, "w") as md:
+            md.writelines(self.updated_text)
+        md.close()
 
 
 if __name__ == "__main__":
     main()
+
