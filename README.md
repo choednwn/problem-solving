@@ -7,5 +7,5 @@
 
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
-|[Baekjoon](Baekjoon)|30|C++|[11021_A+B - 7](Baekjoon/11021_A+B%20-%207.py)|
+|[Baekjoon](Baekjoon)|47|Python|[11720_숫자의 합](Baekjoon/11720_숫자의%20합.py)|
 |[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|
