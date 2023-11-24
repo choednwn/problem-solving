@@ -3,7 +3,9 @@
     std::ios::sync_with_stdio(0); \
     std::cin.tie(0);              \
     std::cout.tie(0)
-#define nline std::cout << "\n"
+#define nline cout << "\n"
+
+using namespace std;
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -12,13 +14,23 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
+    int V = 666;
+    int N;
+    cin >> N;
 
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
+    while (1) {
+        string vToS = to_string(V);
+
+        if (vToS.find("666") != string::npos) {
+            N--;
+
+            if (N == 0) {
+                break;
+            }
+        }
+        V++;
     }
+    cout << V;
 
     return 0;
 }

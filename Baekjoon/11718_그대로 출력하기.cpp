@@ -12,12 +12,13 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
+    while (1) {
+        std::string S;
+        std::getline(std::cin, S);
+        std::cout << S << "\n";
 
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
+        if (std::cin.eof())
+            break;
     }
 
     return 0;

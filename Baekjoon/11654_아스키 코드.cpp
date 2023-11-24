@@ -12,13 +12,9 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
-
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
-    }
+    char L;
+    std::cin >> L;
+    std::cout << (int)L;
 
     return 0;
 }

@@ -12,12 +12,17 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
+    std::string S;
+    std::cin >> S;
 
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
+    std::array<int, 26> alphArr;
+
+    for (int i = 0; i < 26; i++) {
+        alphArr[i] = S.find_first_of(static_cast<char>(i + 97));
+    }
+
+    for (int cnt : alphArr) {
+        std::cout << cnt << " ";
     }
 
     return 0;

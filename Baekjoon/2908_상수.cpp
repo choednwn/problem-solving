@@ -12,13 +12,21 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
+    int A, B, nA = 0, nB = 0;
+    std::cin >> A >> B;
 
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
+    for (int i = 2; i >= 0; i--) {
+        nA += (A % 10) * std::pow(10, i);
+        nB += (B % 10) * std::pow(10, i);
+
+        A /= 10;
+        B /= 10;
     }
+
+    if (nA >= nB)
+        std::cout << nA;
+    else
+        std::cout << nB;
 
     return 0;
 }

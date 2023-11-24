@@ -12,12 +12,20 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
+    int T;
+    std::cin >> T;
 
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
+    while (T--) {
+        int R;
+        std::string S;
+        std::cin >> R >> S;
+
+        for (char letter : S) {
+            for (int i = 0; i < R; i++) {
+                std::cout << letter;
+            }
+        }
+        nline;
     }
 
     return 0;

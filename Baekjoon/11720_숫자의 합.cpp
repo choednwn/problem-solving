@@ -12,13 +12,15 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
+    int N, total = 0;
+    std::string V;
+    std::cin >> N >> V;
 
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
+    for (int i = 0; i < N; i++) {
+        total += V[i] - '0';
     }
+
+    std::cout << total;
 
     return 0;
 }

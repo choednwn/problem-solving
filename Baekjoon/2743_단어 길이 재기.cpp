@@ -3,7 +3,7 @@
     std::ios::sync_with_stdio(0); \
     std::cin.tie(0);              \
     std::cout.tie(0)
-#define nline std::cout << "\n"
+#define nline std::cout << "\n"  // new line for debugging
 
 int main() {
 #ifndef ONLINE_JUDGE
@@ -12,13 +12,9 @@ int main() {
 #endif
     iosnsync;
 
-    std::array<int, 6> pieces = {1, 1, 2, 2, 2, 8};
-
-    for (auto p : pieces) {
-        int curr_amt;
-        std::cin >> curr_amt;
-        std::cout << p - curr_amt << " ";
-    }
+    std::string S;
+    std::cin >> S;
+    std::cout << S.length();
 
     return 0;
 }
