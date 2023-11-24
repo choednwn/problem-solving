@@ -7,5 +7,5 @@
 
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
-|[Baekjoon](Baekjoon)|63|Python|[10798_세로읽기](Baekjoon/10798_세로읽기.py)|
+|[Baekjoon](Baekjoon)|98|C++|[11005_진법 변환 2](Baekjoon/11005_진법%20변환%202.cpp)|
 |[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|
