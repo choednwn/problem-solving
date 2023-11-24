@@ -6,12 +6,14 @@ websites = list()
 def main():
     Website("Baekjoon")
     Website("LeetCode")
+    Website("AdventOfCode")
 
     Markdown()
 
 class Website:
     def __init__(self, folder_name):
         self.folder_name = folder_name
+        self.files = list()
         self.lang_count = dict() # count of solutions per language
         self.recent = str() # most recent solution
 
@@ -24,17 +26,25 @@ class Website:
     def scan_count(self):
          for path in os.scandir(self.folder_name):
             if path.is_file():
-                # ignore .DS_Count file
-                if not path.name.startswith("."):
-                    file_extension = path.name[path.name.find("."):]
-                    if file_extension in self.lang_count.keys():
-                        self.lang_count[file_extension] += 1
-                    else:
-                        self.lang_count[file_extension] = 1
+                # ignore files that start with . or have no file extension
+                if not path.name.startswith(".") and path.name.find(".") != -1:
+                    file_extension = path.name[path.name.rfind("."):]
 
+                    # ignore certain file types
+                    ignored_extensions = [".txt", ".a", ".o", ".out"]
+
+                    if file_extension not in ignored_extensions:
+                        # add file to self.files
+                        self.files.append(path)
+
+                        # increment count
+                        if file_extension in self.lang_count.keys():
+                            self.lang_count[file_extension] += 1
+                        else:
+                            self.lang_count[file_extension] = 1
+    
     def find_recent(self):
-        files = glob.glob(f"{self.folder_name}/[!.]*")
-        self.recent = os.path.basename(max(files, key=os.path.getmtime))
+        self.recent = os.path.basename(max(self.files, key=os.path.getmtime))
 
     def get_stats(self) -> tuple:        
         total_count = 0

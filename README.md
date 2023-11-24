@@ -7,5 +7,6 @@
 
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
-|[Baekjoon](Baekjoon)|98|C++|[11005_진법 변환 2](Baekjoon/11005_진법%20변환%202.cpp)|
+|[Baekjoon](Baekjoon)|95|C++|[11005_진법 변환 2](Baekjoon/11005_진법%20변환%202.cpp)|
 |[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|
+|[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day3](AdventOfCode/2022_Day3.rs)|
