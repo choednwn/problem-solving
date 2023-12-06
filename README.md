@@ -8,6 +8,6 @@
 
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
-|[Baekjoon](Baekjoon)|95|C++|[3003_킹, 퀸, 룩, 비숍, 나이트, 폰](Baekjoon/3003_킹,%20퀸,%20룩,%20비숍,%20나이트,%20폰.cpp)|
-|[LeetCode](LeetCode)|3|C|[1_Two Sum](LeetCode/1_Two%20Sum.c)|
-|[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day2](AdventOfCode/2022_Day2.rs)|
+|[Baekjoon](Baekjoon)|95|C++|[11005_진법 변환 2](Baekjoon/11005_진법%20변환%202.cpp)|
+|[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|
+|[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day3](AdventOfCode/2022_Day3.rs)|
