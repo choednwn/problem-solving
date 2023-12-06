@@ -1,28 +1,28 @@
 name: Update README
 
 on:
-  push:
-    branches: [master]
+    push:
+        branches: [master]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-      steps:
-        - name: Checkout repo content
-          uses: actions/checkout@v4
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repo content
+              uses: actions/checkout@v4
 
-        - name: setup python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.10'
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
 
-        - name: Execute script
-          run: python3 update.py
+            - name: Execute script
+              run: python3 update.py
 
-        - name: Commit files
-          uses: actions/checkout@v4
-          run: |
-            git config user.name github-actions
-            git config user.email github-actions@github.com
-            git commit -m "Updated README"
-            git push
+            - name: Commit files
+              uses: actions/checkout@v4
+              run: |
+                  git config user.name github-actions
+                  git config user.email github-actions@github.com
+                  git commit -m "Updated README"
+                  git push
