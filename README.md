@@ -9,5 +9,5 @@
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
 |[Baekjoon](Baekjoon)|94|C++|[1152_단어의 개수](Baekjoon/1152_단어의%20개수.cpp)|
-|[LeetCode](LeetCode)|7|C#|[14_Longest Common Prefix](LeetCode/14_Longest%20Common%20Prefix.csx)|
+|[LeetCode](LeetCode)|8|C#|[20_Valid Parentheses](LeetCode/20_Valid%20Parentheses.csx)|
 |[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day5](AdventOfCode/2022_Day5.rs)|
