@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
-#define iosnsync                  \
-    std::ios::sync_with_stdio(0); \
-    std::cin.tie(0);              \
+#define iosnsync                                                                                                       \
+    std::ios::sync_with_stdio(0);                                                                                      \
+    std::cin.tie(0);                                                                                                   \
     std::cout.tie(0)
 #define nline std::cout << "\n"
 
-int main() {
+int main()
+{
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -22,7 +23,8 @@ int main() {
 
     int is_letter = 0;
     int space_cnt = 0;
-    for (char letter : S) {
+    for (char letter : S)
+    {
         if (letter == ' ')
             space_cnt++;
         else if (letter != ' ')

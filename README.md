@@ -8,6 +8,6 @@
 
 | Website | Solved | Most used language | Recent |
 |-|-|-|:-|
-|[Baekjoon](Baekjoon)|95|C++|[11005_진법 변환 2](Baekjoon/11005_진법%20변환%202.cpp)|
-|[LeetCode](LeetCode)|2|C|[9_Palindrome Number](LeetCode/9_Palindrome%20Number.c)|
-|[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day3](AdventOfCode/2022_Day3.rs)|
+|[Baekjoon](Baekjoon)|94|C++|[1152_단어의 개수](Baekjoon/1152_단어의%20개수.cpp)|
+|[LeetCode](LeetCode)|7|C#|[14_Longest Common Prefix](LeetCode/14_Longest%20Common%20Prefix.csx)|
+|[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day5](AdventOfCode/2022_Day5.rs)|
