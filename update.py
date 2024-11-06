@@ -53,7 +53,8 @@ class Website:
                             self.lang_count[file_extension] = 1
 
     def find_recent(self):
-        self.recent = os.path.basename(max(self.files, key=os.path.getmtime))
+        self.recent = max(self.files, key=os.path.getmtime).removeprefix(
+            self.folder_name + "/")
 
     def get_stats(self) -> tuple:
         total_count = 0
