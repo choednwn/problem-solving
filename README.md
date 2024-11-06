@@ -6,8 +6,8 @@
   [![AdventOfCode](https://img.shields.io/badge/Advent_Of_Code-235E6F?style=for-the-badge&logo=adventofcode&logoColor=FFFF6E)](https://adventofcode.com)
 </div>
 
-| Website | Solved | Most used language | Recent |
-|-|-|-|:-|
-|[Baekjoon](Baekjoon)|94|C++|[1152_단어의 개수](Baekjoon/1152_단어의%20개수.cpp)|
-|[LeetCode](LeetCode)|8|C#|[20_Valid Parentheses](LeetCode/20_Valid%20Parentheses.csx)|
-|[AdventOfCode](AdventOfCode)|5|Rust|[2022_Day5](AdventOfCode/2022_Day5.rs)|
+| Website                      | Solved | Most used language | Recent                                    |
+| ---------------------------- | ------ | ------------------ | :---------------------------------------- |
+| [Baekjoon](Baekjoon)         | 96     | C++                | [2501.py](Baekjoon/2501.py)               |
+| [LeetCode](LeetCode)         | 5      | C#                 | [26.csx](LeetCode/26.csx)                 |
+| [AdventOfCode](AdventOfCode) | 5      | Rust               | [2022_Day5.rs](AdventOfCode/2022_Day5.rs) |

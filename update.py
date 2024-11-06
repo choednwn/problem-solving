@@ -1,5 +1,5 @@
-import os
 import glob
+import os
 
 websites = list()
 
@@ -19,6 +19,8 @@ class Website:
         self.lang_count = dict()  # count of solutions per language
         self.recent = str()  # most recent solution
 
+        self.ignored_exts = [".txt", ".a", ".o", ".out", ".DS_Store"]
+
         # actions
         global websites
         websites.append(self)
@@ -26,16 +28,21 @@ class Website:
         self.find_recent()
 
     def scan_count(self):
-        for path in os.scandir(self.folder_name):
-            if path.is_file():
-                # ignore files that start with . or have no file extension
-                if not path.name.startswith(".") and path.name.find(".") != -1:
-                    file_extension = path.name[path.name.rfind(".") :]
+        for dir in os.walk(self.folder_name):
+            for file in dir[2]:
+                if not file.startswith(".") and file.find(".") != 1:
+                    file_extension = file[file.find("."):]
 
-                    # ignore certain file types
-                    ignored_extensions = [".txt", ".a", ".o", ".out"]
+                    if file_extension not in self.ignored_exts:
+                        path = str()
+                        fmt_dir: str = dir[0].replace(
+                            "\\", "/") + "/"
 
-                    if file_extension not in ignored_extensions:
+                        if fmt_dir == "/":
+                            path = file
+                        else:
+                            path = fmt_dir + file
+
                         # add file to self.files
                         self.files.append(path)
 
@@ -53,7 +60,8 @@ class Website:
         for count in self.lang_count.values():
             total_count += count
 
-        most_used_lang = max(self.lang_count, key=(lambda key: self.lang_count[key]))
+        most_used_lang = max(self.lang_count, key=(
+            lambda key: self.lang_count[key]))
         match most_used_lang:
             case ".c":
                 most_used_lang = "C"
@@ -91,7 +99,7 @@ class Markdown:
 
     def update_md(self):
         # non-replacing text
-        with open(self.file, "r") as md:
+        with open(self.file, "r", encoding="utf-8") as md:
             lines = md.readlines()
             deletion_start_line = len(lines)
 
@@ -108,13 +116,15 @@ class Markdown:
         md.close()
 
         # replaced text
-        self.updated_text.append("| Website | Solved | Most used language | Recent |\n")
+        self.updated_text.append(
+            "| Website | Solved | Most used language | Recent |\n")
         self.updated_text.append("|-|-|-|:-|\n")
 
         for site in websites:
             name, total_count, most_used_lang, recent = site.get_stats()
             self.updated_text.append(
-                f"|[{name}]({name})|{total_count}|{most_used_lang}|[{recent[:recent.find('.')]}]({name}/{recent.replace(' ', '%20')})|\n"
+                f"|[{name}]({name})|{total_count}|{most_used_lang}|[{
+                    recent}]({name}/{recent.replace(' ', '%20')})|\n"
             )
 
     def write_md(self):
